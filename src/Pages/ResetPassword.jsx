@@ -6,12 +6,11 @@ import { AppContent } from '../Context/AppContext';
 
 const ResetPassword = () => {
   axios.defaults.withCredentials = true;
-  const { backenUrl, setIslogin, getUserData } = useContext(AppContent)
+  const { backenUrl, setIslogin, getUserData,setOtp } = useContext(AppContent)
   const navigate = useNavigate()
   const [email, setEmail] = useState('')
   const [newpass, setNewPass] = useState('')
   const inputRef = React.useRef([]);
-  const [otp, setOtp] = useState('')
   const [isOtpSubmit, setIsOtpSubmit] = useState(false)
   const [isEmailSent, setIsEmailSent] = useState(false)
 

@@ -5,6 +5,9 @@ import Login from './Pages/Login'
 import EmailVerify from './Pages/EmailVerify'
 import ResetPassword from './Pages/ResetPassword'
 import { AppContent } from './Context/AppContext'
+import ForgotPassword from './Pages/Components/ForgetPassword'
+import ResetVerifyOtp from './Pages/ResetVerifyOtp'
+import ChangePassword from './Pages/ChnagePassword'
 
 
 const App = () => {
@@ -23,6 +26,9 @@ const App = () => {
           path='/reset-password' 
           element={islogin ? <ResetPassword /> : <Navigate to="/" />} 
         />
+        <Route path="/reset-pass" element={<ChangePassword />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/verify-reset-otp" element={<ResetVerifyOtp />} />
       </Routes>
     </div>
   )

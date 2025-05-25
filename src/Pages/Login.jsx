@@ -29,7 +29,7 @@ const Login = () => {
             }
             else {
                 const res = await axios.post(backenUrl + '/api/auth/login', { email, password })
-               
+
                 if (res.data.success) {
                     setIslogin(true);
                     getUserData();
@@ -45,7 +45,7 @@ const Login = () => {
     }
     return (
         <div className='min-h-screen flex items-center justify-center px-6 sm:px-0 bg-gradient-to-br from-blue-200 to-purple-400'>
-            <img className='absolute left-5 sm:left-20 top-5 w-28 sm:w-32 cursor-pointer' src={assets.logo} alt="" />
+            <img onClick={()=>navigate('/')} className='absolute left-5 sm:left-20 top-5 w-28 sm:w-32 cursor-pointer' src={assets.logo} alt="" />
             <div className="bg-slate-800 p-10 rounded-lg shadow-lg w-full sm:w-96 text-indigo-300 text-sm">
                 <h2 className='text-3xl text-center font-semibold text-white'>{state === 'sign up' ? 'Create  account' : 'login'}</h2>
                 <p className='text-center text-sm mb-6'>{state === 'sign up' ? 'Create your account' : 'login to your account'}</p>
@@ -67,7 +67,7 @@ const Login = () => {
                         <img src={assets.lock_icon} alt="" />
                         <input value={password} onChange={(e) => setPassword(e.target.value)} className='bg-transparent outline-none' type="text" placeholder='Password' required />
                     </div>
-                    <p className='text-end cursor-pointer'>Forgot Password?</p>
+                    <p onClick={() => navigate('/forgot-password')} className='text-end cursor-pointer'>Forgot Password?</p>
                     <button className="text-white mt-2 w-full py-2.5 rounded-full bg-gradient-to-r from-indigo-500 to-indigo-900 hover:from-indigo-700 hover:to-indigo-1100 active:from-indigo-500 active:to-indigo-400 transition-all duration-300 ease-in-out">
                         {state}
                     </button>

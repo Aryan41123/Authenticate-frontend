@@ -4,8 +4,10 @@ import { createContext, useEffect, useState } from "react";
 export const AppContent = createContext();
 
 export const AppContextProvider = (props) => {
-    axios.defaults.withCredentials=true
+    axios.defaults.withCredentials = true
     const backenUrl = import.meta.env.VITE_BACKEND_URL;
+    const [Email, setEmail] = useState('');
+    const [otp, setOtp] = useState('')
     const [islogin, setIslogin] = useState(false);
     const [userData, setUserData] = useState(false);
 
@@ -23,7 +25,7 @@ export const AppContextProvider = (props) => {
             } else {
                 const errorMessage = res.data.message || 'Unknown error occurred';
                 alert(errorMessage);
-              
+
             }
         } catch (error) {
             console.error('Error fetching user data:', error);
@@ -49,6 +51,9 @@ export const AppContextProvider = (props) => {
 
     // Context value to be passed down to components
     const value = {
+        otp, setOtp,
+        Email,
+        setEmail,
         backenUrl,
         islogin,
         setIslogin,
